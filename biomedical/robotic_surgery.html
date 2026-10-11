@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f6f2">
+  <title>Robotic Surgery Research | Fieldnotes</title>
+  <link rel="stylesheet" href="/dashboard.css">
+  <link rel="stylesheet" href="/robotic-surgery.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="rail" aria-label="Dashboard navigation">
+      <a class="brand-mark" href="/" aria-label="Fieldnotes home">F<span>.</span></a>
+      <div class="rail-rule"></div>
+      <a class="rail-link active" href="#papers" aria-label="Robotic surgery papers" title="Robotic surgery papers">⌕</a>
+      <a class="rail-link" href="#nobel" aria-label="Nobel medicine prizes" title="Nobel medicine prizes">✳</a>
+      <div class="rail-bottom">ROBOTIC<br>RESEARCH</div>
+    </aside>
+
+    <main id="top" class="main-content">
+      <header class="topbar">
+        <div class="wordmark"><a href="/">FIELDNOTES</a> <span>/ ROBOTIC SURGERY</span></div>
+        <div class="header-tools"><nav class="page-links" aria-label="Research pages"><a class="page-link" href="/">All fields</a><a class="page-link" href="/oncology">Oncology</a><a class="page-link" href="/neurosurgery">Neurosurgery</a></nav><div class="live-status"><span class="live-dot"></span> EUROPE PMC <span class="status-divider">/</span> LITERATURE INDEX</div></div>
+      </header>
+
+      <section class="intro robotics-intro">
+        <div>
+          <p class="eyebrow">SURGICAL ROBOTICS <span>RESEARCH ARCHIVE</span></p>
+          <h1>Robotic surgery,<br><em>from evidence.</em></h1>
+        </div>
+        <p class="intro-note">Search indexed biomedical research on robotic and robot-assisted surgical procedures. Open each source record to inspect the original publication.</p>
+      </section>
+
+      <section class="metrics robotics-metrics" aria-label="Search totals">
+        <div class="metric"><span class="metric-label">MATCHING RECORDS</span><strong id="robot-total">—</strong><span class="metric-foot">Europe PMC query hits</span></div>
+        <div class="metric"><span class="metric-label">RECORDS EXTRACTED</span><strong id="robot-extracted">—</strong><span class="metric-foot">of selected result page</span></div>
+        <div class="metric metric-accent"><span class="metric-label">ABSTRACTS AVAILABLE</span><strong id="robot-abstracts">—</strong><span class="metric-foot">among fetched records</span></div>
+        <div class="metric metric-time"><span class="metric-label">SEARCHED</span><strong id="robot-updated">Waiting</strong><span class="metric-foot">Europe PMC</span></div>
+      </section>
+
+      <section id="papers" class="research-section">
+        <div class="section-heading">
+          <div><p class="eyebrow">PUBLICATION INDEX</p><h2>Robotic procedure research</h2></div>
+          <button id="robot-refresh" class="refresh-button" type="button"><span aria-hidden="true">↻</span> Search</button>
+        </div>
+        <form id="robot-search-form" class="robot-search-form">
+          <label class="robot-topic">KEYWORDS
+            <input id="robot-query" type="search" maxlength="200" placeholder="e.g. prostatectomy, telesurgery, complications">
+          </label>
+          <label>PUBLICATION PERIOD
+            <select id="robot-years">
+              <option value="all" selected>All years in Europe PMC</option>
+              <option value="1">Last year</option>
+              <option value="5">Last 5 years</option>
+              <option value="10">Last 10 years</option>
+              <option value="20">Last 20 years</option>
+            </select>
+          </label>
+          <label>RECORDS TO FETCH
+            <select id="robot-limit"><option value="10">10</option><option value="20" selected>20</option><option value="30">30</option></select>
+          </label>
+        </form>
+        <p class="source-note">Coverage: Europe PMC indexed records matching robotic-surgery terminology. “All years” means all years indexed by Europe PMC, not every paper ever published.</p>
+        <div id="robot-status" class="field-status" aria-live="polite">Ready to search.</div>
+        <div id="robot-publications" class="publication-list" aria-live="polite"></div>
+        <div id="robot-empty" class="empty-state" hidden>No records found for this query.</div>
+      </section>
+
+      <section id="nobel" class="research-section nobel-section">
+        <div class="section-heading">
+          <div><p class="eyebrow">OFFICIAL AWARD ARCHIVE</p><h2>Nobel Prize in Physiology or Medicine</h2></div>
+          <a class="source-link" href="https://www.nobelprize.org/prizes/medicine/" target="_blank" rel="noopener noreferrer">NOBEL PRIZE SOURCE ↗</a>
+        </div>
+        <p class="source-note">Recent official medicine laureates and award motivations, fetched from Nobel Prize open data. These awards cover physiology or medicine broadly; they are not presented as robotic-surgery prizes.</p>
+        <div id="nobel-status" class="field-status" aria-live="polite">Loading official award records…</div>
+        <div id="nobel-list" class="nobel-list" aria-live="polite"></div>
+      </section>
+
+      <footer class="footer"><span>Research source: Europe PMC · Award source: Nobel Prize open API</span><span>Discovery tool only · Verify findings in the cited record</span></footer>
+    </main>
+  </div>
+  <script src="/robotic-surgery.js" defer></script>
+</body>
+</html>

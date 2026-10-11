@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f6f2">
+  <title>__SPECIALTY_TITLE__ Research | Fieldnotes</title>
+  <link rel="stylesheet" href="/dashboard.css">
+  <link rel="stylesheet" href="/specialty.css">
+</head>
+<body data-specialty="__SPECIALTY__">
+  <div class="app-shell">
+    <aside class="rail" aria-label="Dashboard navigation">
+      <a class="brand-mark" href="/" aria-label="Fieldnotes home">F<span>.</span></a>
+      <div class="rail-rule"></div>
+      <a class="rail-link active" href="#papers" aria-label="Specialty papers" title="Specialty papers">⌕</a>
+      <div class="rail-bottom">FIELDNOTES<br>RESEARCH</div>
+    </aside>
+    <main id="top" class="main-content">
+      <header class="topbar">
+        <div class="wordmark"><a href="/">FIELDNOTES</a> <span>/ __SPECIALTY_TITLE__</span></div>
+        <div class="header-tools">
+          <nav class="page-links" aria-label="Research pages">
+            <a class="page-link" href="/">All fields</a>
+            <a class="page-link" href="/robotic-surgery">Robotic surgery</a>
+            <a class="page-link" href="/oncology">Oncology</a>
+            <a class="page-link" href="/neurosurgery">Neurosurgery</a>
+          </nav>
+          <div class="live-status"><span class="live-dot"></span> EUROPE PMC <span class="status-divider">/</span> LITERATURE INDEX</div>
+        </div>
+      </header>
+      <section class="intro specialty-intro">
+        <div><p class="eyebrow">SPECIALTY RESEARCH <span>EUROPE PMC</span></p><h1>__SPECIALTY_TITLE__,<br><em>from evidence.</em></h1></div>
+        <p class="intro-note">__SPECIALTY_DESCRIPTION__</p>
+      </section>
+      <section class="metrics specialty-metrics" aria-label="Search totals">
+        <div class="metric"><span class="metric-label">MATCHING RECORDS</span><strong id="specialty-total">—</strong><span class="metric-foot">Europe PMC query hits</span></div>
+        <div class="metric"><span class="metric-label">RECORDS EXTRACTED</span><strong id="specialty-extracted">—</strong><span class="metric-foot">of selected result page</span></div>
+        <div class="metric metric-accent"><span class="metric-label">ABSTRACTS AVAILABLE</span><strong id="specialty-abstracts">—</strong><span class="metric-foot">among fetched records</span></div>
+        <div class="metric metric-time"><span class="metric-label">SEARCHED</span><strong id="specialty-updated">Waiting</strong><span class="metric-foot">Europe PMC</span></div>
+      </section>
+      <section id="papers" class="research-section">
+        <div class="section-heading"><div><p class="eyebrow">PUBLICATION INDEX</p><h2 id="specialty-heading">__SPECIALTY_TITLE__ research</h2></div><button id="specialty-refresh" class="refresh-button" type="button"><span aria-hidden="true">↻</span> Search</button></div>
+        <form id="specialty-search-form" class="specialty-search-form">
+          <label class="topic-field">KEYWORDS<input id="specialty-query" type="search" maxlength="200" placeholder="Add terms to narrow results"></label>
+          <label>PUBLICATION PERIOD<select id="specialty-years"><option value="all" selected>All years in Europe PMC</option><option value="1">Last year</option><option value="5">Last 5 years</option><option value="10">Last 10 years</option><option value="20">Last 20 years</option></select></label>
+          <label>RECORDS TO FETCH<select id="specialty-limit"><option value="10">10</option><option value="20" selected>20</option><option value="30">30</option></select></label>
+        </form>
+        <p class="source-note">Search results come from Europe PMC’s indexed records. “All years” means all years indexed by Europe PMC, not every publication ever published.</p>
+        <div id="specialty-status" class="field-status" aria-live="polite">Ready to search.</div>
+        <div id="specialty-publications" class="publication-list" aria-live="polite"></div>
+        <div id="specialty-empty" class="empty-state" hidden>No records found for this query.</div>
+      </section>
+      <footer class="footer"><span>Research source: Europe PMC</span><span>Discovery tool only · Verify findings in the cited record</span></footer>
+    </main>
+  </div>
+  <script src="/specialty.js" defer></script>
+</body>
+</html>

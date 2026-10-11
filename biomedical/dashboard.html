@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f6f2">
+  <title>Fieldnotes | Biomedical literature</title>
+  <link rel="stylesheet" href="/dashboard.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="rail" aria-label="Dashboard navigation">
+      <a class="brand-mark" href="#top" aria-label="Fieldnotes home">F<span>.</span></a>
+      <div class="rail-rule"></div>
+      <a class="rail-link active" href="#papers" aria-label="Research papers" title="Research papers">⌕</a>
+      <a class="rail-link" href="#metrics" aria-label="Extraction summary" title="Extraction summary">▤</a>
+      <div class="rail-bottom">EUROPE<br>PMC LIVE</div>
+    </aside>
+
+    <main id="top" class="main-content">
+      <header class="topbar">
+        <div class="wordmark">FIELDNOTES <span>/ BIOMEDICAL</span></div>
+        <div class="header-tools"><nav class="page-links" aria-label="Research pages"><a class="page-link" href="/robotic-surgery">Robotic surgery</a><a class="page-link" href="/oncology">Oncology</a><a class="page-link" href="/neurosurgery">Neurosurgery</a></nav><div class="live-status"><span class="live-dot"></span> EUROPE PMC <span class="status-divider">/</span> LAST 12 MONTHS</div></div>
+      </header>
+
+      <section class="intro">
+        <div>
+          <p class="eyebrow">RESEARCH MONITOR <span>01 — 03</span></p>
+          <h1>New evidence,<br><em>clearly indexed.</em></h1>
+        </div>
+        <p class="intro-note">Recent biomedical literature across Nature, clinical medicine, and bioengineering. Records and abstracts are fetched live through Europe PMC.</p>
+      </section>
+
+      <section id="metrics" class="metrics" aria-label="Extraction totals">
+        <div class="metric"><span class="metric-label">MATCHING IN EUROPE PMC</span><strong id="total-matches">—</strong><span class="metric-foot">within selected searches</span></div>
+        <div class="metric"><span class="metric-label">RECORDS EXTRACTED</span><strong id="extracted-count">—</strong><span class="metric-foot">citation records fetched</span></div>
+        <div class="metric metric-accent"><span class="metric-label">ABSTRACTS AVAILABLE</span><strong id="abstract-count">—</strong><span class="metric-foot">of records fetched</span></div>
+        <div class="metric metric-time"><span class="metric-label">UPDATED</span><strong id="updated-at">Waiting</strong><span class="metric-foot">refreshes on request</span></div>
+      </section>
+
+      <section id="papers" class="research-section">
+        <div class="section-heading">
+          <div><p class="eyebrow">THE READING LIST</p><h2>Recent publications</h2></div>
+          <button id="refresh" class="refresh-button" type="button" title="Refresh all searches"><span aria-hidden="true">↻</span> Refresh</button>
+        </div>
+
+        <div class="toolbar">
+          <div class="tabs" role="tablist" aria-label="Publication categories">
+            <button class="tab selected" data-category="all" role="tab" aria-selected="true">All fields</button>
+            <button class="tab" data-category="nature" role="tab" aria-selected="false">Nature</button>
+            <button class="tab" data-category="medical" role="tab" aria-selected="false">Medical</button>
+            <button class="tab" data-category="bioengineering" role="tab" aria-selected="false">Bioengineering</button>
+            <div id="custom-search-tabs" class="custom-search-tabs"></div>
+          </div>
+          <label class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Filter extracted papers" autocomplete="off"><kbd>/</kbd></label>
+          <label class="limit-control">PAPERS PER FIELD
+            <select id="limit" aria-label="Maximum papers per field">
+              <option value="5">5</option><option value="10" selected>10</option><option value="20">20</option>
+            </select>
+          </label>
+        </div>
+
+        <form id="global-search-form" class="global-search-form">
+          <label>ADD GLOBAL SEARCH
+            <input id="search-name" name="name" maxlength="80" placeholder="Search name" required>
+          </label>
+          <label class="global-query">EUROPE PMC QUERY
+            <input id="search-query" name="query" maxlength="300" placeholder='e.g. (CRISPR OR gene editing) AND cancer' required>
+          </label>
+          <button class="refresh-button" type="submit">＋ Save &amp; extract</button>
+        </form>
+        <p class="schedule-note">Saved searches refresh every 2 days while this dashboard server is running.</p>
+        <div id="field-status" class="field-status" aria-live="polite"></div>
+        <div id="publication-list" class="publication-list" aria-live="polite"></div>
+        <div id="empty-state" class="empty-state" hidden>No papers match this filter.</div>
+      </section>
+
+      <footer class="footer"><span>Source: Europe PMC core records and abstracts</span><span>Research discovery only · Verify findings in the source publication</span></footer>
+    </main>
+  </div>
+  <script src="/dashboard.js" defer></script>
+</body>
+</html>
